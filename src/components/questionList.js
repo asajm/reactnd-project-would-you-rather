@@ -4,7 +4,6 @@ import Question from './question'
 
 class QuestionList extends Component {
     render() {
-        console.log(this.props)
         return (
             <div>
                 <div>options</div>

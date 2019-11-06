@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 class Question extends Component {
     toVote = (e, questionId) => {
         e.preventDefault()
-        console.log(questionId)
         // Todo: redirect to question page
     }
 
