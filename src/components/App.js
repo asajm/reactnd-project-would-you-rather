@@ -23,9 +23,9 @@ class App extends Component {
   }
 }
 
-function mapStateToProps({ autherUser }) {
+function mapStateToProps({ authedUser }) {
   return {
-    loading: autherUser === null
+    loading: authedUser === null
   }
 }
 

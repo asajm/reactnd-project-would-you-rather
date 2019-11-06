@@ -9,3 +9,9 @@
 //         text: optionOne.text
 //     }
 // }
+
+export function isVoted(question, authedUser) {
+    const { optionOne, optionTwo } = question
+    const votes = [...optionOne.votes, ...optionTwo.votes]
+    return votes.includes(authedUser)
+}
