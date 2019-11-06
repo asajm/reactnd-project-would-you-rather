@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { handleInitialData } from "../actions/shared";
-// import QuestionList from './questionList'
+import QuestionList from './questionList'
 
 
 class App extends Component {
@@ -9,12 +9,23 @@ class App extends Component {
     this.props.dispatch(handleInitialData())
   }
 
-
   render() {
     return (
-      <div>get start</div>
+      <div>
+        {
+          this.props.loading === true
+          ? null
+          : <QuestionList></QuestionList>
+        }
+      </div>
     );
   }
 }
 
-export default connect()(App);
+function mapStateToProps({ autherUser }) {
+  return {
+    loading: autherUser === null
+  }
+}
+
+export default connect(mapStateToProps)(App);
