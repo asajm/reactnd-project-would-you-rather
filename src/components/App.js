@@ -6,6 +6,7 @@ import { LoadingBar } from "react-redux-loading-bar";
 import QuestionContainer from "./questionContainer";
 import QuestionNew from "./questionNew";
 import Leaderboard from "./leaderboard";
+import SignIn from "./signIn";
 
 
 class App extends Component {
@@ -24,7 +25,8 @@ class App extends Component {
           // : <QuestionContainer id='8xf0y6ziyjabvozdd253nd'></QuestionContainer> // the 'id' is not answered yet by 'tylermcginnis'
           // : <QuestionContainer id='xj352vofupe1dqz9emx13r'></QuestionContainer> // the 'id' is answered by 'tylermcginnis'
           // : <QuestionNew></QuestionNew>
-          : <Leaderboard></Leaderboard>
+          // : <Leaderboard></Leaderboard>
+          : <SignIn></SignIn>
         }
       </div>
     );
