@@ -5,6 +5,17 @@ export function isVoted(question, authedUser) {
     return votes.includes(authedUser)
 }
 
+export function getScores(user) {
+    const answers = Object.keys(user.answers).length
+    const questions = user.questions.length
+    const score = questions + answers
+    return {
+        score,
+        answers,
+        questions
+    }
+}
+
 export const formatUser = {
     forAddQuestion: ({ user, qid }) => {
         return {
@@ -19,6 +30,11 @@ export const formatUser = {
                 ...user.answer,
                 [qid]: answer
             }
+        }
+    },
+    forLeaderboard: () => {
+        return {
+
         }
     }
 }

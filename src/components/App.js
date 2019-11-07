@@ -5,6 +5,8 @@ import QuestionList from './questionList'
 import { LoadingBar } from "react-redux-loading-bar";
 import QuestionContainer from "./questionContainer";
 import QuestionNew from "./questionNew";
+import Leaderboard from "./leaderboard";
+
 
 class App extends Component {
   componentDidMount() {
@@ -21,7 +23,8 @@ class App extends Component {
           // : <QuestionList></QuestionList>
           // : <QuestionContainer id='8xf0y6ziyjabvozdd253nd'></QuestionContainer> // the 'id' is not answered yet by 'tylermcginnis'
           // : <QuestionContainer id='xj352vofupe1dqz9emx13r'></QuestionContainer> // the 'id' is answered by 'tylermcginnis'
-          : <QuestionNew></QuestionNew>
+          // : <QuestionNew></QuestionNew>
+          : <Leaderboard></Leaderboard>
         }
       </div>
     );
