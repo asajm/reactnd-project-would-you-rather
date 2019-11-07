@@ -1,4 +1,4 @@
-import { RECEIVE_USERS, ANSWER_USER } from "../actions/users";
+import { RECEIVE_USERS, UPDATE_USER } from "../actions/users";
 
 export default function users(state = {}, action) {
     switch (action.type) {
@@ -7,18 +7,34 @@ export default function users(state = {}, action) {
                 ...state,
                 ...action.users
             }
-        case ANSWER_USER:
+        case UPDATE_USER:
             return {
                 ...state,
-                [action.authedUser]: {
-                    ...state[action.authedUser],
-                    answers: {
-                        ...state[action.authedUser].answers,
-                        [action.qid]: action.answer
-                    }
-                }
+                [action.user.id]: action.user
             }
         default:
             return state
     }
 }
+
+// users = {
+//     ...users,
+//     [authedUser]: {
+//       ...users[authedUser],
+//       questions: users[authedUser].questions.concat([formattedQuestion.id])
+//     }
+//   }
+
+// {
+//     id: generateUID(),
+//     timestamp: Date.now(),
+//     author,
+//     optionOne: {
+//         votes: [],
+//         text: optionOneText,
+//     },
+//     optionTwo: {
+//         votes: [],
+//         text: optionTwoText,
+//     }
+// }

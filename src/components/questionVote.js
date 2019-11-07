@@ -16,10 +16,10 @@ class QuestionVote extends Component {
 
     submitVote = (e) => {
         e.preventDefault()
-        const { authedUser, question } = this.props
+        const { currentUser, question } = this.props
         const answer = this.state.selectedOption
         const info = {
-            authedUser,
+            user: currentUser,
             question,
             answer
         }
@@ -59,11 +59,13 @@ class QuestionVote extends Component {
 function mapStateToProps({ authedUser, users, questions }, { id }) {
     const question = questions[id]
     const author = users[question.author]
+    const currentUser = users[authedUser]
 
     return {
         question,
         author,
-        authedUser
+        authedUser,
+        currentUser
     }
 }
 

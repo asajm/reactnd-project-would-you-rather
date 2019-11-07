@@ -1,6 +1,5 @@
-
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
-export const ANSWER_QUESTION = 'ANSWER_QUESTION'
+export const UPDATE_QUESTION = 'UPDATE_QUESTION'
 
 export function receiveQuestions(questions) {
     return {
@@ -9,14 +8,9 @@ export function receiveQuestions(questions) {
     }
 }
 
-export function answerQuestion({authedUser, qid, answer}) {
+export function updateQuestion(question) {
     return {
-        type: ANSWER_QUESTION,
-        qid,
-        authedUser,
-        answer
+        type: UPDATE_QUESTION,
+        question
     }
 }
-
-
-

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-// import { formatQuestion } from "../utils/helpers";
 
 class Question extends Component {
     toVote = (e, questionId) => {

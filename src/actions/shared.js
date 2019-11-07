@@ -1,15 +1,16 @@
-import { getInitialData, saveQuestionAnswer } from "../utils/api";
-import { receiveQuestions, answerQuestion } from "../actions/questions";
-import { receiveUsers, answerUser } from "../actions/users";
+import { getInitialData, saveQuestionAnswer, saveQuestion } from "../utils/api";
+import { receiveQuestions, updateQuestion } from "../actions/questions";
+import { receiveUsers, updateUser } from "../actions/users";
 import { setAuthedUser } from "../actions/authedUser";
 import { showLoading, hideLoading } from "react-redux-loading-bar";
+import { formatUser, formatQuestion } from "../utils/helpers";
 
 const AUTHED_ID = 'tylermcginnis'
 
 export function handleInitialData() {
     return (dispatch) => {
         dispatch(showLoading())
-        return getInitialData().then(({users, questions}) => {
+        return getInitialData().then(({ users, questions }) => {
             dispatch(receiveUsers(users))
             dispatch(receiveQuestions(questions))
             dispatch(setAuthedUser(AUTHED_ID))
@@ -18,19 +19,58 @@ export function handleInitialData() {
     }
 }
 
-export function handleAnswerQuestuon({question, authedUser, answer}) {
-    return (dispatch, getState) => {
+export function handleAnswerQuestuon({ question, user, answer }) {
+    return (dispatch) => {
         dispatch(showLoading())
         const info = {
-            authedUser,
-            answer,
+            authedUser: user.id,
+            answer: answer,
             qid: question.id,
         }
 
+        const _question = question
+        const _user = user
+        const _answer = answer
+
         return saveQuestionAnswer(info).then(() => {
-            dispatch(answerQuestion(info))
-            dispatch(answerUser(info))
+            const user = formatUser.forAnswerQuestion({
+                user: _user,
+                qid: _question.id,
+                answer: _answer
+            })
+            const question = formatQuestion.forAnswerQuestion({
+                question: _question,
+                uid: _user.id,
+                answer: _answer
+            })
+
+            dispatch(updateQuestion(question))
+            dispatch(updateUser(user))
             dispatch(hideLoading())
         })
     }
 }
+
+export function handleAddQuestion({ optionOneText, optionTwoText, author }) {
+    return (dispatch) => {
+        dispatch(showLoading())
+        const info = {
+            optionOneText,
+            optionTwoText,
+            author: author.id
+        }
+        const _author = author
+        return saveQuestion(info).then((question) => {
+            const user = formatUser.forAddQuestion({
+                user: _author,
+                qid: question.id,
+            })
+            dispatch(updateQuestion(question))
+            dispatch(updateUser(user))
+            dispatch(hideLoading())
+
+        })
+    }
+}
+
+

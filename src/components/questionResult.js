@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { formatQuestionResult } from "../utils/helpers";
+import { formatQuestion } from "../utils/helpers";
 
 class QuestionResult extends Component {
     render() {
@@ -23,11 +23,14 @@ class QuestionResult extends Component {
 }
 
 function mapStateToProps({ authedUser, users, questions }, { id }) {
-    const question = questions[id]
-    const author = users[question.author]
+    const info = {
+        question: questions[id],
+        author: users[questions[id].author],
+        authedUser
+    }
 
     return {
-        question: formatQuestionResult(question, author, authedUser)
+        question: formatQuestion.forResult(info)
     }
 }
 
