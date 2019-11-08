@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from "react-redux";
 import { handleInitialData } from "../actions/shared";
 import QuestionList from './questionList'
@@ -7,7 +7,15 @@ import QuestionContainer from "./questionContainer";
 import QuestionNew from "./questionNew";
 import Leaderboard from "./leaderboard";
 import SignIn from "./signIn";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Nav from "./nav";
+import PrivateRoute from "./privateRoute";
+import NoFound from "./noFound";
 
+function User(props) {
+  console.log(props)
+  return <h1>Hello {props.match.params.id}!</h1>;
+}
 
 class App extends Component {
   componentDidMount() {
@@ -16,19 +24,36 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <LoadingBar></LoadingBar>
-        {
-          this.props.loading === true
-          ? null
-          // : <QuestionList></QuestionList>
-          // : <QuestionContainer id='8xf0y6ziyjabvozdd253nd'></QuestionContainer> // the 'id' is not answered yet by 'tylermcginnis'
-          // : <QuestionContainer id='xj352vofupe1dqz9emx13r'></QuestionContainer> // the 'id' is answered by 'tylermcginnis'
-          // : <QuestionNew></QuestionNew>
-          // : <Leaderboard></Leaderboard>
-          : <SignIn></SignIn>
-        }
-      </div>
+      <Router>
+        <Fragment>
+          <LoadingBar></LoadingBar>
+          <div>
+            <Nav></Nav>
+            {
+              <Switch>
+                <PrivateRoute path='/' exact >
+                  <QuestionList />
+                </PrivateRoute>
+                <Route path='/questions/:id' render={(props) => (
+                  <QuestionContainer {...props}></QuestionContainer>
+                )} />
+                <PrivateRoute path='/new'>
+                  <QuestionNew />
+                </PrivateRoute>
+                <PrivateRoute path='/leaderboard'>
+                  <Leaderboard />
+                </PrivateRoute>
+                <Route path='/login'>
+                  <SignIn />
+                </Route>
+                <Route path="*">
+                  <NoFound />
+                </Route>
+              </Switch>
+            }
+          </div>
+        </Fragment>
+      </Router>
     );
   }
 }

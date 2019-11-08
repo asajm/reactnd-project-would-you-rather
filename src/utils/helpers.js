@@ -1,5 +1,6 @@
 
 export function isVoted(question, authedUser) {
+    console.log('# isVoted > question: ', question)
     const { optionOne, optionTwo } = question
     const votes = [...optionOne.votes, ...optionTwo.votes]
     return votes.includes(authedUser)
