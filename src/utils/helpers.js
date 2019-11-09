@@ -75,6 +75,11 @@ export const formatQuestion = {
     }
 }
 
+export function getColor() {
+    const colors = ['#007bff', '#674eec', '#8445f7', '#ff4169', '#fb7906', '#ffb400', '#17c671', '#1adba2', '#00b8d8', '#868e96', '#007bff', '#5A6169', '#17c671', '#00b8d8', '#ffb400']
+    return colors[Math.floor(Math.random() * colors.length)]
+  }
+
 
 export const optionOne = 'optionOne'
 export const optionTwo = 'optionTwo'
