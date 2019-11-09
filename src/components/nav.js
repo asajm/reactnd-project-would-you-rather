@@ -1,40 +1,101 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Link } from 'react-router-dom'
-import { setAuthedUser } from "../actions/authedUser";
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  InputGroup,
+  InputGroupAddon,
+  InputGroupText,
+  FormInput,
+  Collapse
+} from "shards-react";
+import NavUserAction from "./navUserAction";
 
-class Nav extends Component {
+class Navigation extends React.Component {
+  constructor(props) {
+    super(props);
 
-  handleLogout = (e) => {
-    this.props.dispatch(setAuthedUser(null))
+    this.toggleDropdown = this.toggleDropdown.bind(this);
+    this.toggleNavbar = this.toggleNavbar.bind(this);
+
+    this.state = {
+      dropdownOpen: false,
+      collapseOpen: false
+    };
+  }
+
+  toggleDropdown() {
+    this.setState({
+      ...this.state,
+      ...{
+        dropdownOpen: !this.state.dropdownOpen
+      }
+    });
+  }
+
+  toggleNavbar() {
+    this.setState({
+      ...this.state,
+      ...{
+        collapseOpen: !this.state.collapseOpen
+      }
+    });
   }
 
   render() {
-    const { user } = this.props
     return (
-      <div>
-        <Link to='/'>Home</Link>
-        <Link to='/new'>New</Link>
-        <Link to='/leaderboard'>Leaderboard</Link>
-        {
-          user === null
-            ? null
-            : (
-              <div>
-                <img src={user.avatarURL} alt="avatar" height='50'></img>
-                <button onClick={this.handleLogout}>logout</button>
-              </div>
-            )
-        }
-      </div>
-    )
+      <Navbar type="dark" theme="success" expand="md">
+        <NavbarBrand href="#">Would You Rather</NavbarBrand>
+        <NavbarToggler onClick={this.toggleNavbar} />
+
+        <Collapse open={this.state.collapseOpen} navbar>
+          <Nav navbar>
+            <NavItem>
+              <NavLink
+                className='nav-link'
+                to="/"
+                isActive={(match, location) => location.pathname === '/' ? true : false}
+              >
+                Home
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink
+                className='nav-link'
+                to="/new"
+                isActive={(match, location) => location.pathname === '/new' ? true : false}
+              >
+                New
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink
+                className='nav-link'
+                to="/leaderboard"
+                isActive={(match, location) => location.pathname === '/leaderboard' ? true : false}
+              >
+                Leaderboard
+              </NavLink>
+            </NavItem>
+          </Nav>
+
+          <Nav navbar className="ml-auto">
+            <NavUserAction></NavUserAction>
+          </Nav>
+        </Collapse>
+      </Navbar>
+    );
   }
 }
 
-function mapStateToProps({ users, authedUser }) {
-  return {
-    user: authedUser ? users[authedUser] : null
-  }
-}
 
-export default connect(mapStateToProps)(Nav)
+export default Navigation

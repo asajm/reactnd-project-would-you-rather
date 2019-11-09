@@ -8,14 +8,14 @@ import QuestionNew from "./questionNew";
 import Leaderboard from "./leaderboard";
 import SignIn from "./signIn";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Nav from "./nav";
+import Navigation from "./nav";
 import PrivateRoute from "./privateRoute";
 import NoFound from "./noFound";
 
-function User(props) {
-  console.log(props)
-  return <h1>Hello {props.match.params.id}!</h1>;
-}
+import "bootstrap/dist/css/bootstrap.min.css"
+import "shards-ui/dist/css/shards.min.css"
+import "./app.css";
+
 
 class App extends Component {
   componentDidMount() {
@@ -28,7 +28,7 @@ class App extends Component {
         <Fragment>
           <LoadingBar></LoadingBar>
           <div>
-            <Nav></Nav>
+            <Navigation></Navigation>
             {
               <Switch>
                 <PrivateRoute path='/' exact >
