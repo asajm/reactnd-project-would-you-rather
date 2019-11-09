@@ -3341,6 +3341,14 @@ a.badge {
     height: 0.9375rem;
 }
 
+.progress-xl {
+    height: 1.5625rem;
+}
+
+.progress-xl .progress-bar {
+    height: 1.5625rem;
+}
+
 .progress-bar {
     height: 0.625rem;
     line-height: 0.625rem;
