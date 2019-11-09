@@ -15,6 +15,8 @@ import {
   CardBody,
 } from "shards-react";
 import { getColor } from "../utils/helpers";
+import { faUserFriends } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class QuestionResult extends Component {
   render() {
@@ -55,7 +57,7 @@ class QuestionResult extends Component {
                       {' '}
                       {
                         question.votedOptionOne
-                          ? (<span className="badge badge-pill badge-success">Voted</span>)
+                          ? (<span className="badge badge-pill badge-success">your vote</span>)
                           : ''
                       }
                     </strong>
@@ -64,7 +66,7 @@ class QuestionResult extends Component {
                       value={rateOptionOne}
                     >
                       <span className="progress-value">
-                        {rateOptionOne}%
+                        <FontAwesomeIcon icon={faUserFriends}/> {question.votesOptionOne} - {rateOptionOne}%
                       </span>
                     </Progress>
                   </div>
@@ -76,7 +78,7 @@ class QuestionResult extends Component {
                       {' '}
                       {
                         question.votedOptionTwo
-                          ? (<span className="badge badge-pill badge-success">Voted</span>)
+                          ? (<span className="badge badge-pill badge-success">your vote</span>)
                           : ''
                       }
 
@@ -86,7 +88,7 @@ class QuestionResult extends Component {
                       value={rateOptionTwo}
                     >
                       <span className="progress-value">
-                        {rateOptionTwo}%
+                      <FontAwesomeIcon icon={faUserFriends}/> {question.votesOptionTwo} - {rateOptionTwo}%
                       </span>
                     </Progress>
                   </div>

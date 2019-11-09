@@ -5,12 +5,6 @@ import { isVoted } from "../utils/helpers";
 import {
   Container,
   Row,
-  Col,
-  Card,
-  CardBody,
-  CardFooter,
-  Badge,
-  Button
 } from "shards-react";
 
 class QuestionList extends Component {
@@ -40,7 +34,7 @@ class QuestionList extends Component {
         <Row>
           <ul className="nav nav-tabs w-100 justify-content-center mb-3">
             <li className="nav-item">
-              <a className={`nav-link ${notYet}`} href="#" onClick={this.changeView}>Need an Answer</a>
+              <a className={`nav-link ${notYet}`} href="#" onClick={this.changeView}>Need Your Answer</a>
             </li>
             <li className="nav-item">
               <a className={`nav-link ${answered}`} href="#" onClick={this.changeView}>Answered</a>

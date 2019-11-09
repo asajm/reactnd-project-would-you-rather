@@ -5,16 +5,9 @@ import { handleAnswerQuestuon } from "../actions/shared";
 import { Link } from "react-router-dom";
 import {
   Card,
-  CardHeader,
-  ListGroup,
-  ListGroupItem,
   Container,
   Col,
   Row,
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
   CardBody,
   CardFooter,
 } from "shards-react";
@@ -71,7 +64,7 @@ class QuestionVote extends Component {
                 </div>
                 <CardBody>
                   <h4 className="card-title">Would You Rather</h4>
-                  <select class="custom-select custom-select-lg" size="2">
+                  <select className="custom-select custom-select-lg" size="2">
                     <option value={optionOne} onClick={this.changeOption}>{question.optionOne.text}</option>
                     <option value={optionTwo} onClick={this.changeOption}>{question.optionTwo.text}</option>
                   </select>
