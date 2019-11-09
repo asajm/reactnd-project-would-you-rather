@@ -5944,9 +5944,9 @@ html .ql-toolbar .ql-picker .ql-picker-options {
     border-radius: 0.375rem;
 }
 
-.card-post .card-body {
+/* .card-post .card-body {
     padding: 1.5625rem 1.5625rem;
-}
+} */
 
 .card-post .card-footer, .card-post .card-header {
     padding-left: 1.5625rem;
@@ -5955,7 +5955,8 @@ html .ql-toolbar .ql-picker .ql-picker-options {
 
 .card-post__image {
     position: relative;
-    min-height: 10.3125rem;
+    /* min-height: 10.3125rem; */
+    min-height: 3.4rem;
     border-top-left-radius: 0.625rem;
     border-top-right-radius: 0.625rem;
     background-size: cover;

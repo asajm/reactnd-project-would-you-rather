@@ -2,6 +2,16 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Question from './question'
 import { isVoted } from "../utils/helpers";
+import {
+  Container,
+  Row,
+  Col,
+  Card,
+  CardBody,
+  CardFooter,
+  Badge,
+  Button
+} from "shards-react";
 
 class QuestionList extends Component {
   constructor(props) {
@@ -21,27 +31,32 @@ class QuestionList extends Component {
   }
 
   render() {
-    console.log(this.props)
+    console.log('# QuestionList > render > props : ', this.props)
     const { authedUser, questions } = this.props
+    const notYet = this.state.viewAnsweredQuestions === false ? 'active' : null
+    const answered = this.state.viewAnsweredQuestions === true ? 'active' : null
     return (
-      <div>
-        <div>
-          <button onClick={this.changeView}>chagne view</button>
-        </div>
-        <div>
+      <Container fluid className="main-content-container px-4 py-4">
+        <Row>
+          <ul className="nav nav-tabs w-100 justify-content-center mb-3">
+            <li className="nav-item">
+              <a className={`nav-link ${notYet}`} href="#" onClick={this.changeView}>Need an Answer</a>
+            </li>
+            <li className="nav-item">
+              <a className={`nav-link ${answered}`} href="#" onClick={this.changeView}>Answered</a>
+            </li>
+          </ul>
+        </Row>
+        <Row>
           {
-            questions && authedUser
-              ? questions
-                .filter(question => this.state.viewAnsweredQuestions === isVoted(question, authedUser))
-                .map(question => (
-                  <li key={question.id}>
-                    <Question id={question.id}></Question>
-                  </li>
-                ))
-              : null
+            questions
+              .filter(question => this.state.viewAnsweredQuestions === isVoted(question, authedUser))
+              .map(question => (
+                  <Question key={question.id} id={question.id}></Question>
+              ))
           }
-        </div>
-      </div>
+        </Row>
+      </Container>
     )
   }
 }
