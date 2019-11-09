@@ -3,11 +3,15 @@ import { connect } from "react-redux";
 import { isVoted } from "../utils/helpers";
 import QuestionVote from './questionVote'
 import QuestionResult from './questionResult'
-import { Link, useParams } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 class QuestionContainer extends Component {
   render() {
     const { authedUser, question } = this.props
+
+    if (question === null || authedUser == null) {
+      return <Redirect to='/' />
+    }
     return (
       <div>
         {

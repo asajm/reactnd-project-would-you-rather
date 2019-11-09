@@ -50,7 +50,7 @@ class UserCard extends Component {
                       <div
                         className="progress-bar"
                         role="progressbar"
-                        style={{width: `${questionPct}%`, backgroundColor: color}}
+                        style={{width: `${questionPct}%`, height: '1.5rem', backgroundColor: color}}
                       >
                         {scores.questions} questions
                       </div>
@@ -58,7 +58,7 @@ class UserCard extends Component {
                       <div
                         className="progress-bar"
                         role="progressbar"
-                        style={{width: `${answerPct}%`, backgroundColor: color.concat('aa')}}
+                        style={{width: `${answerPct}%`, height: '1.5rem', backgroundColor: color.concat('aa')}}
                       >
                         {scores.answers} answers
                       </div>

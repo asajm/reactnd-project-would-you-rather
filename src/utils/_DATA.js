@@ -1,8 +1,8 @@
 let users = {
-  sarahedo: {
-    id: 'sarahedo',
-    name: 'Sarah Edo',
-    avatarURL: 'https://tylermcginnis.com/would-you-rather/sarah.jpg',
+  ahmedsaleh: {
+    id: 'ahmedsaleh',
+    name: 'Ahmed Saleh',
+    avatarURL: 'https://ipfs.io/ipfs/QmbZnbt4RusDkgfX5cLTWpxSH9wi6kaj6akMSaY8Sz2NEB',
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo',
@@ -37,10 +37,10 @@ let users = {
 let questions = {
   "8xf0y6ziyjabvozdd253nd": {
     id: '8xf0y6ziyjabvozdd253nd',
-    author: 'sarahedo',
+    author: 'ahmedsaleh',
     timestamp: 1467166872634,
     optionOne: {
-      votes: ['sarahedo'],
+      votes: ['ahmedsaleh'],
       text: 'have horrible short term memory',
     },
     optionTwo: {
@@ -57,20 +57,20 @@ let questions = {
       text: 'become a superhero',
     },
     optionTwo: {
-      votes: ['johndoe', 'sarahedo'],
+      votes: ['johndoe', 'ahmedsaleh'],
       text: 'become a supervillain'
     }
   },
   "am8ehyc8byjqgar0jgpub9": {
     id: 'am8ehyc8byjqgar0jgpub9',
-    author: 'sarahedo',
+    author: 'ahmedsaleh',
     timestamp: 1488579767190,
     optionOne: {
       votes: [],
       text: 'be telekinetic',
     },
     optionTwo: {
-      votes: ['sarahedo'],
+      votes: ['ahmedsaleh'],
       text: 'be telepathic'
     }
   },
@@ -83,7 +83,7 @@ let questions = {
       text: 'be a front-end developer',
     },
     optionTwo: {
-      votes: ['sarahedo'],
+      votes: ['ahmedsaleh'],
       text: 'be a back-end developer'
     }
   },
