@@ -1,18 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import { setAuthedUser } from "../actions/authedUser";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  Collapse,
-  NavItem,
-  NavLink,
-  Nav,
   Button
 } from "shards-react";
 
@@ -39,7 +28,6 @@ class NavUserActions extends Component {
 
   render() {
     const { user } = this.props
-    console.log('# NavUserActions > user : ', user)
     return (
       user == null
         ? null

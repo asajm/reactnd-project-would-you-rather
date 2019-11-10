@@ -2,7 +2,7 @@ let users = {
   ahmedsaleh: {
     id: 'ahmedsaleh',
     name: 'Ahmed Saleh',
-    avatarURL: 'https://ipfs.io/ipfs/QmbZnbt4RusDkgfX5cLTWpxSH9wi6kaj6akMSaY8Sz2NEB',
+    avatarURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYDMuJJberHxzimNGmcrRbWO6mBToKWzGHW7my0Wfpss71QrAwWg&s',
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo',

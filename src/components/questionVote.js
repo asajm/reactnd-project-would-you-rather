@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { optionOne, optionTwo, getColor } from "../utils/helpers";
-import { handleAnswerQuestuon } from "../actions/shared";
-import { Link } from "react-router-dom";
+import { handleAnswerQuestion } from "../actions/shared";
 import {
   Card,
   Container,
@@ -34,7 +33,7 @@ class QuestionVote extends Component {
       question,
       answer
     }
-    this.props.dispatch(handleAnswerQuestuon(info))
+    this.props.dispatch(handleAnswerQuestion(info))
   }
 
   render() {

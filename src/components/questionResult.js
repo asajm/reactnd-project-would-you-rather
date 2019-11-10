@@ -3,15 +3,12 @@ import { connect } from "react-redux";
 import { formatQuestion } from "../utils/helpers";
 import {
   Card,
-  CardHeader,
-  Button,
   ListGroup,
   ListGroupItem,
   Progress,
   Container,
   Col,
   Row,
-  Badge,
   CardBody,
 } from "shards-react";
 import { getColor } from "../utils/helpers";

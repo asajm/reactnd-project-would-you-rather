@@ -25,7 +25,6 @@ class QuestionList extends Component {
   }
 
   render() {
-    console.log('# QuestionList > render > props : ', this.props)
     const { authedUser, questions } = this.props
     const notYet = this.state.viewAnsweredQuestions === false ? 'active' : null
     const answered = this.state.viewAnsweredQuestions === true ? 'active' : null

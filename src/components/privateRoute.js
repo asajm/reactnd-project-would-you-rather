@@ -6,7 +6,6 @@ class PrivateRoute extends Component {
   render() {
     const { children, ...rest } = this.props
     const { isAuthenticated, loginPath } = rest
-    console.log('# PrivateRoute > props : ', this.props)
     return (
       <Route
         {...rest}

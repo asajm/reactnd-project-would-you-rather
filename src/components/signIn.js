@@ -35,14 +35,12 @@ class SignIn extends Component {
   }
 
   handleChange(e) {
-    console.log('# SignIn > handleChange > props', this.props)
     const username = e.target.value
     this.props.dispatch(setAuthedUser(username))
     this.setState({ isSignedIn: true })
   }
 
   render() {
-    console.log('# SignIn > render > props', this.props)
     const { usernames } = this.props
     return (
 
@@ -57,10 +55,9 @@ class SignIn extends Component {
                 <CardHeader className="border-bottom text-center">
                   <div className="mb-3 mx-auto">
                     <img
-                      className="rounded-circle"
-                      src='https://www.clker.com/cliparts/N/0/4/q/4/R/react-redux.svg'
+                      src='https://hackernoon.com/hn-images/1*VeM-5lsAtrrJ4jXH96h5kg.png'
                       alt={'userDetails.name'}
-                      width="110"
+                      width="256"
                     />
                   </div>
                   <h4 className="mb-0">Would You Rather</h4>

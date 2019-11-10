@@ -1,7 +1,6 @@
 import { getInitialData, saveQuestionAnswer, saveQuestion } from "../utils/api";
 import { receiveQuestions, updateQuestion } from "../actions/questions";
 import { receiveUsers, updateUser } from "../actions/users";
-import { setAuthedUser } from "../actions/authedUser";
 import { showLoading, hideLoading } from "react-redux-loading-bar";
 import { formatUser, formatQuestion } from "../utils/helpers";
 
@@ -19,7 +18,7 @@ export function handleInitialData() {
     }
 }
 
-export function handleAnswerQuestuon({ question, user, answer }) {
+export function handleAnswerQuestion({ question, user, answer }) {
     return (dispatch) => {
         dispatch(showLoading())
         const info = {

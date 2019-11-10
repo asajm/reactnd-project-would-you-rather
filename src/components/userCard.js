@@ -7,9 +7,6 @@ import {
   Col,
   Row,
   CardBody,
-  ListGroup,
-  ListGroupItem,
-  Progress,
 } from "shards-react";
 import { getColor } from "../utils/helpers";
 import { faTrophy } from "@fortawesome/free-solid-svg-icons";

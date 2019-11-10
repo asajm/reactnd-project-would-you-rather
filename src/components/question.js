@@ -2,17 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom'
 import {
-  Container,
-  Row,
   Col,
   Card,
   CardBody,
   CardFooter,
-  Badge,
-  Button
 } from "shards-react";
-import { fsl, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getColor } from "../utils/helpers";
 
 class Question extends Component {
@@ -24,7 +18,6 @@ class Question extends Component {
   render() {
     const { question, author } = this.props
     const color = getColor()
-    console.log('# question > render > color : ', color)
     return (
       <Col lg="3" md="6" sm="12" className="mb-4">
         <Card small className="card-post card-post--1">

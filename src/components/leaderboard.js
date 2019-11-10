@@ -10,9 +10,7 @@ class Leaderboard extends Component {
       <div>
         {
           users.map(user => (
-            <li key={user.id}>
-              <UserCard id={user.id}></UserCard>
-            </li>
+            <UserCard id={user.id}></UserCard>
           ))
         }
       </div>
@@ -26,7 +24,6 @@ function mapStateToProps({ users }) {
     .map(key => {
       return users[key];
     })
-  console.log(orderedUsers)
   return {
     users: orderedUsers
   }

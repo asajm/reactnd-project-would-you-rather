@@ -27,8 +27,6 @@ class QuestionContainer extends Component {
 
 function mapStateToProps(state, props) {
   const { questions, authedUser } = state
-  console.log('# QuestionContainer > state : ', state)
-  console.log('# QuestionContainer > props : ', props)
   const { id } = props.match.params
   const question = questions[id]
   return {

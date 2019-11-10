@@ -1,6 +1,5 @@
 
 export function isVoted(question, authedUser) {
-    console.log('# isVoted > question: ', question)
     const { optionOne, optionTwo } = question
     const votes = [...optionOne.votes, ...optionTwo.votes]
     return votes.includes(authedUser)
@@ -25,10 +24,11 @@ export const formatUser = {
         }
     },
     forAnswerQuestion: ({ user, qid, answer }) => {
+
         return {
             ...user,
             answers: {
-                ...user.answer,
+                ...user.answers,
                 [qid]: answer
             }
         }

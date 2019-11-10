@@ -7,8 +7,6 @@ import {
   Container,
   Col,
   Row,
-  CardBody,
-  CardFooter,
   ListGroup,
   ListGroupItem,
 } from "shards-react";
