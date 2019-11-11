@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Route, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
+import SignIn from "./signIn";
 
 class PrivateRoute extends Component {
   render() {
@@ -12,11 +13,7 @@ class PrivateRoute extends Component {
         render={
           ({ location }) => isAuthenticated
             ? (children)
-            : (<Redirect to={{
-              pathname: loginPath,
-              state: { from: location }
-            }}
-            />)
+            : (<SignIn />)
         }
       />
     )

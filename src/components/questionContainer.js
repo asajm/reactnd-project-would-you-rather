@@ -10,7 +10,7 @@ class QuestionContainer extends Component {
     const { authedUser, question } = this.props
 
     if (question === null || authedUser == null) {
-      return <Redirect to='/' />
+      return <Redirect to='/404' />
     }
     return (
       <div>

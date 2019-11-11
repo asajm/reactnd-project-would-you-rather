@@ -10,7 +10,7 @@ class Leaderboard extends Component {
       <div>
         {
           users.map(user => (
-            <UserCard id={user.id}></UserCard>
+            <UserCard key={user.id} id={user.id}></UserCard>
           ))
         }
       </div>

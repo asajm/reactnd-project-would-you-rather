@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { handleInitialData } from "../actions/shared";
 import { setAuthedUser } from "../actions/authedUser";
 import { Redirect } from 'react-router-dom'
 import {
@@ -26,6 +27,10 @@ class SignIn extends Component {
       isSignedIn: false,
       open: false
     }
+  }
+
+  componentDidMount() {
+    this.props.dispatch(handleInitialData())
   }
 
   toggle() {
@@ -64,16 +69,16 @@ class SignIn extends Component {
                 </CardHeader>
                 <ListGroup flush>
                   <ListGroupItem className="px-4">
-                      <Dropdown open={this.state.open} toggle={this.toggle} size="lg">
-                        <DropdownToggle className='w-100'>Login</DropdownToggle>
-                        <DropdownMenu className='w-100'>
-                          {
-                            usernames.map(username => (
-                              <DropdownItem key={username} value={username} onClick={(e) => this.handleChange(e)}>{username}</DropdownItem>
-                            ))
-                          }
-                        </DropdownMenu>
-                      </Dropdown>
+                    <Dropdown open={this.state.open} toggle={this.toggle} size="lg">
+                      <DropdownToggle className='w-100'>Login</DropdownToggle>
+                      <DropdownMenu className='w-100'>
+                        {
+                          usernames.map(username => (
+                            <DropdownItem key={username} value={username} onClick={(e) => this.handleChange(e)}>{username}</DropdownItem>
+                          ))
+                        }
+                      </DropdownMenu>
+                    </Dropdown>
                   </ListGroupItem>
                 </ListGroup>
               </Card>

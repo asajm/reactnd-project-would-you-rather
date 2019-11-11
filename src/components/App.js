@@ -18,9 +18,9 @@ import "./app.css";
 
 
 class App extends Component {
-  componentDidMount() {
-    this.props.dispatch(handleInitialData())
-  }
+  // componentDidMount() {
+  //   this.props.dispatch(handleInitialData())
+  // }
 
   render() {
     return (
@@ -31,20 +31,23 @@ class App extends Component {
             <Navigation></Navigation>
             {
               <Switch>
-                <PrivateRoute path='/' exact >
+                <PrivateRoute path='/' exact  Component={QuestionList}>
                   <QuestionList />
                 </PrivateRoute>
                 <Route path='/questions/:id' render={(props) => (
                   <QuestionContainer {...props}></QuestionContainer>
                 )} />
-                <PrivateRoute path='/new'>
+                <PrivateRoute path='/add' Component={QuestionNew}>
                   <QuestionNew />
                 </PrivateRoute>
-                <PrivateRoute path='/leaderboard'>
+                <PrivateRoute path='/leaderboard' Component={Leaderboard}>
                   <Leaderboard />
                 </PrivateRoute>
-                <Route path='/login'>
+                <Route path='/login' Component={SignIn}>
                   <SignIn />
+                </Route>
+                <Route path="/404">
+                  <NoFound />
                 </Route>
                 <Route path="*">
                   <NoFound />

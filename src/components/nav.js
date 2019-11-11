@@ -61,8 +61,8 @@ class Navigation extends React.Component {
             <NavItem>
               <NavLink
                 className='nav-link'
-                to="/new"
-                isActive={(match, location) => location.pathname === '/new' ? true : false}
+                to="/add"
+                isActive={(match, location) => location.pathname === '/add' ? true : false}
               >
                 New
               </NavLink>
